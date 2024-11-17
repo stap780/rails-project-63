@@ -1,6 +1,6 @@
 
-[![CI status](https://github.com/stap780/rails-project-63/actions/workflows/ci.yml/badge.svg)]
-[![Hexlet Check](https://github.com/stap780/rails-project-63/actions/workflows/hexlet-check.yml/badge.svg)]
+[![CI status](https://github.com/stap780/rails-project-63/actions/workflows/ci.yml/badge.svg)](https://github.com/stap780/rails-project-63/actions/workflows/ci.yml)
+[![Hexlet Check](https://github.com/stap780/rails-project-63/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/stap780/rails-project-63/actions/workflows/hexlet-check.yml)
 # HexletCode
 
 TODO: Delete this and the text below, and describe your gem
