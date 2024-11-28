@@ -1,4 +1,5 @@
 module HexletCode
+
   class Tag
 
     def self.build(tag, options = {})
