@@ -3,10 +3,7 @@ module HexletCode
   class Tag
 
     def self.build(tag, options = {})
-      extra = options.map{|k,v| "#{k}='#{v}'"}.join(' ')
-      # block = block_given? ? yield : ''
-      # array = tag == 'img' || tag == 'input' ? ['<',tag, extra,'>'] : ['<',tag, extra,'>', block,'</', tag,'>']
-      # array.join()
+      extra = options.map{ |k, v| "#{k}='#{v}'" }.join(' ')
       tag_name = tag.to_s.downcase
       if tag_name == 'input'
         "<#{tag_name} #{extra}>"

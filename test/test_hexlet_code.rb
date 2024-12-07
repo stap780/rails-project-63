@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "test_helper"
+require_relative 'test_helper'
 
 # TestHexletCode
 class TestHexletCode < Minitest::Test
-
   def setup
-
     struct = Struct.new(:name, :job, :gender, keyword_init: true)
     @user = struct.new name: 'rob', job: 'hexlet', gender: 'm'
   end
@@ -19,21 +17,18 @@ class TestHexletCode < Minitest::Test
 
   def test_form_without_options
     check_form = HexletCode.form_for(@user)
-    # expected = "<form action='#' method='post'></form>"
     expected = load_fixture('form_without_options')
     assert_equal(expected, check_form)
   end
 
   def test_form_with_options
     check_form = HexletCode.form_for(@user, class: 'hexlet-form')
-    # expected = "<form action='#' method='post' class='hexlet-form'></form>"
     expected = load_fixture('form_with_options')
     assert_equal(expected, check_form)
   end
 
   def test_form_with_url_and_options
     check_form = HexletCode.form_for(@user, url: '/profile', class: 'hexlet-form')
-    # expected = "<form action='/profile' method='post' class='hexlet-form'></form>"
     expected = load_fixture('form_with_url_and_options')
     assert_equal(expected, check_form)
   end
@@ -104,5 +99,4 @@ class TestHexletCode < Minitest::Test
     expected = load_fixture('form_with_submit_value')
     assert_equal(expected, check_form)
   end
-
 end
