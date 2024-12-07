@@ -3,25 +3,54 @@
 [![CI](https://github.com/stap780/rails-project-63/actions/workflows/ruby.yml/badge.svg)](https://github.com/stap780/rails-project-63/actions/workflows/ci.yml)
 # HexletCode
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hexlet_code`. To experiment with that code, run `bin/console` for an interactive prompt.
+This test gem is for generate forms like SimpleForm gem but very simple.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Open Gemfile and add this line:
 
-Install the gem and add to the application's Gemfile by executing:
+```ruby
+gem 'rails-project-63', github: "stap780/rails-project-63"
+```
+And then execute:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```
+$ bundle install
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Module `HexletCode` has one method `form_for(object, options, &block)`.
+
+You can use that method without block to create empty HTML forms.
+
+```ruby
+HexletCode.form_for user, { url: '/users' } do |f|
+end
+
+# <form action="/users" method="post"></form>
+```
+We have only two methods `input` and `submit`. And we can use it with additional data - class, type.
+
+`input` will add label and input inside your form. It has optional parameter `as`, you can send it with `text` symbol and then you will get `textarea` instead of `input`.
+
+And `submit` method will add button to your form.
+
+```ruby
+HexletCode.form_for user do |f|
+  f.input :name
+  f.input :job
+  f.submit
+end
+
+# <form action="#" method="post">
+#   <label for="name">Name</label>
+#   <input name="name" type="text">
+#   <label for="job">Job</label>
+#   <input name="job" type="text" value="hexlet">
+#   <input type="submit" value="Save">
+# </form>
+```
 
 ## Development
 
