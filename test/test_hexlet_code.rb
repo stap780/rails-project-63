@@ -7,8 +7,8 @@ class TestHexletCode < Minitest::Test
 
   def setup
 
-    struct = Struct.new(:name, :job, keyword_init: true)
-    @user = struct.new name: 'rob', job: 'hexlet'
+    struct = Struct.new(:name, :job, :gender, keyword_init: true)
+    @user = struct.new name: 'rob', job: 'hexlet', gender: 'm'
   end
 
   def teardown; end
