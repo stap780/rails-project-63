@@ -5,9 +5,9 @@ require_relative "hexlet_code/version"
 module HexletCode
   class Error < StandardError; end
   # Your code goes here...
-  autoload(:Tag, "./lib/modules/tag.rb")
-  autoload(:FormBuilder, "./lib/modules/form_builder.rb")
-  autoload(:FormRenderer, "./lib/modules/form_render.rb")
+  autoload(:Tag, "#{__dir__}/modules/tag.rb")
+  autoload(:FormBuilder, "#{__dir__}/modules/form_builder.rb")
+  autoload(:FormRenderer, "#{__dir__}/modules/form_render.rb")
 
   def self.form_for( object, options = {} )
     form = HexletCode::FormBuilder.new(object, options)
