@@ -37,6 +37,5 @@ module HexletCode
       input = HexletCode::Tag.build('textarea', { cols: cols, rows: rows }.merge(options)) { value }
       label + input
     end
-
   end
 end
