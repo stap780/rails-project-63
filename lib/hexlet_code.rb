@@ -9,10 +9,9 @@ module HexletCode
   autoload(:FormBuilder, "#{__dir__}/modules/form_builder.rb")
   autoload(:FormRenderer, "#{__dir__}/modules/form_render.rb")
 
-  def self.form_for( object, options = {} )
+  def self.form_for(object, options = {})
     form = HexletCode::FormBuilder.new(object, options)
     yield(form) if block_given?
     HexletCode::FormRenderer.new(form).build_html
   end
-
 end
