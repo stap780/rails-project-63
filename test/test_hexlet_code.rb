@@ -65,7 +65,7 @@ class TestHexletCode < Minitest::Test
     assert_equal(expected, check_form)
   end
 
-  def test_heve_missing_method
+  def test_have_missing_method
     assert_raises NoMethodError do
       HexletCode.form_for @user, url: '/users' do |f|
         f.input :name
@@ -73,6 +73,36 @@ class TestHexletCode < Minitest::Test
         f.input :age # Поля age у пользователя нет
       end
     end
+  end
+
+  def test_form_with_label
+    check_form = HexletCode.form_for @user do |f|
+      f.input :name
+      f.input :job
+      f.submit
+    end
+    expected = load_fixture('form_with_label')
+    assert_equal(expected, check_form)
+  end
+
+  def test_form_with_submit
+    check_form = HexletCode.form_for @user do |f|
+      f.input :name
+      f.input :job
+      f.submit
+    end
+    expected = load_fixture('form_with_submit')
+    assert_equal(expected, check_form)
+  end
+
+  def test_form_with_submit_value
+    check_form = HexletCode.form_for @user do |f|
+      f.input :name
+      f.input :job
+      f.submit 'Wow'
+    end
+    expected = load_fixture('form_with_submit_value')
+    assert_equal(expected, check_form)
   end
 
 end

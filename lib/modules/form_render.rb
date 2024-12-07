@@ -9,18 +9,15 @@ module HexletCode
 
     def build_html
       form = @our_form.form_data
-      # puts "form[:inputs] => #{form[:inputs]}"
       inputs_as_html = build_inputs(form[:inputs])
-      # puts "inputs_as_html => #{inputs_as_html}"
-      HexletCode::Tag.build('form', form[:form_options]) { inputs_as_html }
+      submit = HexletCode::Tag.build('input', form[:submit][:options]) unless form[:submit][:options].nil?
+      HexletCode::Tag.build('form', form[:form_options]) { "#{inputs_as_html}#{submit}" }
     end
 
     def build_inputs(inputs)
       inputs.map do |input|
-        # puts "input => #{input}"
         new_input = create_string_input(input[:options], input[:value]) if input[:type] == :input
         new_input = create_text_input(input[:options], input[:value]) if input[:type] == :text
-        # puts "new_input => #{new_input}"
         new_input
       end.join
     end
@@ -28,13 +25,17 @@ module HexletCode
     def create_string_input(options, value)
       options[:type] = 'text'
       options[:value] = value
-      HexletCode::Tag.build('input', options)
+      label = HexletCode::Tag.build('label', { for: options[:name] }) { options[:name].capitalize }
+      input = HexletCode::Tag.build('input', options)
+      label + input
     end
 
     def create_text_input(options, value)
       cols = options[:cols] ||= 20
       rows = options[:rows] ||= 40
-      HexletCode::Tag.build('textarea', { cols: cols, rows: rows }.merge(options)) { value }
+      label = HexletCode::Tag.build('label', { for: options[:name] }) { options[:name].capitalize }
+      input = HexletCode::Tag.build('textarea', { cols: cols, rows: rows }.merge(options)) { value }
+      label + input
     end
 
   end
