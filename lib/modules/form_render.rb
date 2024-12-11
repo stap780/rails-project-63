@@ -3,7 +3,6 @@
 module HexletCode
   # FormRenderer for rendering our form
   class FormRenderer
-    require 'active_support/all'
     def initialize(form)
       @our_form = form
     end
