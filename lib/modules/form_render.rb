@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module HexletCode
+  require 'active_support/all'
   # FormRenderer for rendering our form
   class FormRenderer
     def initialize(form)
