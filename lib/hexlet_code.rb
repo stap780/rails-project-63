@@ -8,6 +8,7 @@ module HexletCode
   autoload(:Tag, "#{__dir__}/modules/tag.rb")
   autoload(:FormBuilder, "#{__dir__}/modules/form_builder.rb")
   autoload(:FormRenderer, "#{__dir__}/modules/form_render.rb")
+  autoload(:Inputs, "#{__dir__}/modules/inputs")
 
   def self.form_for(object, options = {})
     form = HexletCode::FormBuilder.new(object, options)
