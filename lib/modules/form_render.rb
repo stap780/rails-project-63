@@ -19,27 +19,7 @@ module HexletCode
         input_type = input[:type] == :input ? 'String' : input[:type].capitalize
         input_class = "HexletCode::Inputs::#{input_type}Input".constantize
         input_class.build(input[:options], input[:value])
-
-        # new_input = create_string_input(input[:options], input[:value]) if input[:type] == :input
-        # new_input = create_text_input(input[:options], input[:value]) if input[:type] == :text
-        # new_input
       end.join
     end
-
-    # def create_string_input(options, value)
-    #   options[:type] = 'text'
-    #   options[:value] = value
-    #   label = HexletCode::Tag.build('label', { for: options[:name] }) { options[:name].capitalize }
-    #   input = HexletCode::Tag.build('input', options)
-    #   label + input
-    # end
-
-    # def create_text_input(options, value)
-    #   cols = options[:cols] ||= 20
-    #   rows = options[:rows] ||= 40
-    #   label = HexletCode::Tag.build('label', { for: options[:name] }) { options[:name].capitalize }
-    #   input = HexletCode::Tag.build('textarea', { cols: cols, rows: rows }.merge(options)) { value }
-    #   label + input
-    # end
   end
 end
